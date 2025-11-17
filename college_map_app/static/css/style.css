@@ -1,0 +1,163 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #9fd79f;
+  color: #333;
+}
+
+/* Header Styling */
+header {
+  background-color: #4CAF50;
+  color: rgb(255, 255, 255);
+  padding: 20px 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Controls (search, buttons) */
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.controls input,
+.controls button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #3e8e41;
+  color: white;
+  cursor: pointer;
+}
+
+/* Map */
+#map {
+  height: 500px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Feedback Form */
+.feedback-form {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 600px;
+  background: hsl(134, 39%, 65%);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid #98b861;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.feedback-form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: rgb(255, 255, 255);
+  border-radius: 6px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.feedback-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Download Excel Button */
+a[download] button {
+  margin: 10px auto;
+  display: block;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #28a745;
+  transition: background 0.3s;
+}
+
+a[download] button:hover {
+  background-color: #218838;
+}
+
+/* Feedback Display */
+#feedbacks {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  padding: 10px;
+}
+
+#feedbacks p {
+  background-color: #fff;
+  padding: 12px;
+  border-left: 5px solid #4CAF50;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 10px;
+}
+
+/* Theme Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-mode .feedback-form,
+body.dark-mode #feedbacks p {
+  background-color: #1e1e1e;
+  color: white;
+  border-left-color: #90ee90;
+}
+
+body.dark-mode header {
+  background-color: #2e7d32;
+}
+
+body.dark-mode a[download] button {
+  background-color: #66bb6a;
+}
+
+/* 🔓 Logout Button Styling */
+.logout-container {
+  text-align: right;
+  padding: 10px 20px;
+}
+
+.logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RIT College Map with Feedback</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="light-mode">
+
+  <header>
+    <h2>RIT College Map 🗺</h2>
+    <div class="controls">
+      <input type="text" id="searchBox" placeholder="🔍 Search location..." list="locationList" />
+      <button id="clearRouteBtn">🧹 Clear Route</button>
+      <button id="toggleThemeBtn">🌙</button>
+    </div>
+  </header>
+
+  <div style="text-align: right; padding: 10px;">
+    <form method="get" action="{{ url_for('logout') }}">
+      <button type="submit" style="background-color:#e74c3c;color:white;border:none;padding:10px 16px;border-radius:6px;cursor:pointer;">
+        Logout 🔓
+      </button>
+    </form>
+  </div>
+
+  <datalist id="locationList"></datalist>
+
+  <div id="map"></div>
+
+  <!-- Feedback Form -->
+  <section class="feedback-form">
+    <h3>📝 Submit Feedback</h3>
+    <form method="POST" action="/submit_feedback" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="location" placeholder="Searched Location" required />
+
+      <label for="feedbackCategory">Category:</label>
+      <select id="feedbackCategory" name="category" required>
+        <option value="General">General</option>
+        <option value="UI Issue">UI Issue</option>
+        <option value="Incorrect Info">Incorrect Info</option>
+        <option value="Missing Location">Missing Location</option>
+      </select>
+
+      <label for="rating">Rating:</label>
+      <select name="rating" id="rating" required>
+        <option value="">Select</option>
+        <option value="1">1 - Poor</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
+      </select>
+
+      <textarea name="comment" placeholder="Your Feedback..." required></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+
+  <!-- Excel Download Button -->
+  <div style="margin: 20px 0;">
+    <a href="/download_excel" download>
+      <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+        📥 Download Feedback Excel
+      </button>
+    </a>
+  </div>
+  <!-- JavaScript dependencies -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
